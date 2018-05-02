@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-v-if</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>Home-Content</h2>
+	<div id="app">
+		<div v-if="isLogin">您好！我勒个俊</div>
+		<div v-else>请先登录</div>
+		<ol v-show="isShow">
+			<li>克里夫兰</li>
+			<li>休斯敦</li>
+			<li>金州</li>
+			<li>波士顿</li>
+		</ol>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				isLogin: true,
+			},
+			computed: {
+				isShow: function() {
+					return this.isLogin
+				}
+			}
+		})
+	</script>
+</body>
+</html>
