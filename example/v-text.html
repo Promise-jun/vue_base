@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-v-text</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>v-text and v-html</h2>
+	<div id="app">
+		<span v-text="message"></span>
+		<span v-html="dodo"></span>
+		<h3>不建议使用v-html，容易被xss攻击</h3>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'this is v-text',
+				dodo: "<h3>this is v-html</h3>"
+			}
+		})
+	</script>
+</body>
+</html>
