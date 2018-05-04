@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-v-bind</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>v-bind</h2>
+	<div id="app">
+		<p v-pre>原样输出（v-pre）：{{message}}</p>
+		<p v-cloak>渲染完成后，才显示！（v-cloak）</p>
+		<p v-once>只渲染一次（v-once)：{{message}}</p>
+		<p>双向数据绑定：{{message}}</p>
+		<p><input type="text" v-model="message" name=""></p>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'my name is wolegejun'
+			}
+		})
+	</script>
+</body>
+</html>
