@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.set 全局操作</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>Vue.set 全局操作</h2>
+	
+	<div id="app">
+		<ul>
+			<li v-for="item in arr">{{item}}</li>
+		</ul>
+	</div>
+
+	<p><button onclick="changeFn()">change</button></p>
+
+	<script type="text/javascript">
+
+		function changeFn() {
+			// app.arr[1] = 'dd'; //不能改变
+			Vue.set(app.arr, 1, 'd'); //可以改变
+		}
+
+		var outData = {
+			arr: ['aaa', 'bbb', 'ccc']
+		}
+		
+		var app = new Vue({
+			el: '#app',
+			data: outData
+		})
+	</script>
+</body>
+</html>
