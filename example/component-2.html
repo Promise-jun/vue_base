@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>component-2</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>component-2</h2>
+	
+	<div id="app">
+		<wolegejun here="jinhua"></wolegejun>
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			components	: {
+				'wolegejun': {
+					template: '<h2 style="color: green;">wolegejun from {{ here }}</h2>',
+					props: ['here']
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>component-3</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>component-3</h2>
+	
+	<div id="app">
+		<wolegejun here="jinhua"></wolegejun>
+	</div>
+
+	<script type="text/javascript">
+
+		var cityComp = {
+			template: '<h2 style="color: red;">jinhua of zhejiang</h2>'
+		}
+
+		var wolegejunComp = {
+			template: `
+				<div>
+					<p>wolegejun from {{ here }}</p>
+					<city></city>
+				</div>
+			`,
+			props: ['here'],
+			components: {
+				'city': cityComp
+			}
+		}
+
+		var app = new Vue({
+			el: '#app',
+			components	: {
+				'wolegejun': wolegejunComp
+			}
+		})
+	</script>
+</body>
+</html>
