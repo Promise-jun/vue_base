@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>computed Option</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>computed Option</h2>
+	
+	<div id="app">
+		<p>{{newPrice}}</p>
+		<ul>
+			<li v-for="item in reverseList">{{item.title}} -- {{item.time}}</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		var newsList = [
+			{title: '让崇尚英雄成为时代风尚  互动征集:我们家的报国故事', time: '2017/5/20'},
+			{title: '习近平引领“美丽中国”建设 讲解中华生态文化', time: '2017/5/21'},
+			{title: '壮阔东方潮 奋进新时代——庆祝改革开放40年', time: '2017/5/22'},
+			{title: '人社部:我国就业人员超过7.7亿人 就业形势保持稳定', time: '2017/5/23'}
+		]
+		
+		var app = new Vue({
+			el: '#app',
+			data: {
+				price: 100,
+				newsList: newsList
+			},
+			computed: {
+				newPrice: function() {
+					return '人民币' + this.price + '元';
+				},
+				reverseList: function() {
+					return this.newsList.reverse();
+				}
+			}
+		})
+	</script>
+</body>
+</html>

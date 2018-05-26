@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>watch Option</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h2>watch Option</h2>
+	
+	<div id="app">
+		<p>今天温度： {{wendu}}℃</p>
+		<p>建议穿衣： {{chuanyi}}</p>
+		<p>
+			<button v-on:click="down">下降5℃</button>
+			<button v-on:click="up">上升5℃</button>
+		</p>
+	</div>
+
+	<script type="text/javascript">
+
+		var chuanyiArr = ['短袖T恤', '棉衣羽绒服', '夹克长裙'];
+		
+		var app = new Vue({
+			el: '#app',
+			data: {
+				wendu: 13,
+				chuanyi: '夹克长裙'
+			},
+			methods: {
+				down: function() {
+					this.wendu -= 5;
+				},
+				up: function() {
+					this.wendu += 5;
+				}
+			}
+			// 第一种
+			/*watch: {
+				wendu: function(newVal, oldVal) {
+					if (newVal > 26) {
+						this.chuanyi = chuanyiArr[0];
+					} else if (newVal < 0) {
+						this.chuanyi = chuanyiArr[1];
+					} else {
+						this.chuanyi = chuanyiArr[2];
+					}
+				}
+			}*/
+		})
+
+		// 第二种
+		app.$watch('wendu', function(newVal, oldVal) {
+			if (newVal > 26) {
+				this.chuanyi = chuanyiArr[0];
+			} else if (newVal < 0) {
+				this.chuanyi = chuanyiArr[1];
+			} else {
+				this.chuanyi = chuanyiArr[2];
+			}
+		})
+	</script>
+</body>
+</html>
