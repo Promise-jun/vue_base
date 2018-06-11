@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>example methods 实例方法4</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<h2>example methods 实例方法4</h2>
+	<div id="app">
+		<wolegejun>
+			<span slot="name">{{dataObj.name}}</span>
+			<span slot="url">{{dataObj.url}}</span>
+			<span slot="tool">{{dataObj.tool}}</span>
+		</wolegejun>
+	</div>
+
+	<template id="tep">
+		<div>
+			<p>名字：<slot name="name"></slot></p>
+			<p>地址：<slot name="url"></slot></p>
+			<p>描述：<slot name="tool"></slot></p>
+		</div>
+	</template>
+	
+
+	<script type="text/javascript">
+		var wolegejun = {
+			template: '#tep'
+		}
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				dataObj: {
+					"name": "百度",
+					"url": "www.baidu.com",
+					"tool": "百度一下，你就知道"
+				}
+			},
+			components: {
+				"wolegejun": wolegejun
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>example methods 实例方法2</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<h2>example methods 实例方法2</h2>
+	<div id="app"></div>
+
+	<button onclick="destroy()">卸载</button>
+	<button onclick="reload()">刷新</button>
+	<button onclick="tick()">数据修改</button>
+
+	<script type="text/javascript">
+		var panpan = Vue.extend({
+			template: `<p>{{message}}</p>`,
+			data: function() {
+				return {
+					message: 'this is panpan'
+				}
+			},
+			mounted: function() {
+				console.log('mounted 被创建')
+			},
+			destroyed: function() {
+				console.log('destroyed 被卸载')
+			},
+			updated: function() {
+				console.log('updated 被更新')
+			}
+		})
+
+		var vm = new panpan().$mount('#app');
+
+		function destroy() {
+			vm.$destroy();
+		}
+
+		function reload() {
+			vm.$forceUpdate();
+		}
+
+		function tick() {
+			vm.message = "message changed";
+			vm.$nextTick(function() {
+				console.log('message 修改后执行')
+			})
+		}
+	</script>
+</body>
+</html>

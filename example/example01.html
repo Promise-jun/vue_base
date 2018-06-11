@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>example methods 实例方法1</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<h2>example methods 实例方法1</h2>
+	<div id="app">
+		{{ message }}
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'this is home content'
+			},
+			mounted: function() {
+				$('#app').html('jquery内容');
+			},
+			methods: {
+				add: function() {
+					console.log('调用了构造器内部的add方法');
+				}
+			}
+		});
+
+		app,add();
+	</script>
+</body>
+</html>
